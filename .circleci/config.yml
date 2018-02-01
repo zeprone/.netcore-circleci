@@ -11,12 +11,9 @@ jobs:
           name: Moving to the project directory
           command: |
             pushd ./Project/src/Project/
-            dotnet publish -c Release -o out
+            dotnet publish -c Release -o /build/out
             popd
       - run:
           name: Run result
-          command: |
-            pushd ./Project/src/Project/
-            dotnet out/Project
-            popd
+          command: dotnet out/Project.dll
 

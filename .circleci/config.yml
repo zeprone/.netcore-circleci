@@ -7,12 +7,16 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Moving to the project directory
-          command: cd Project/src/Project/
-      - run:
           name: Building the project
-          command: dotnet publish -c Release -o out
+          name: Moving to the project directory
+          command: |
+            pushd ./Project/src/Project/
+            dotnet publish -c Release -o out
+            popd
       - run:
           name: Run result
-          command: dotnet out/Project
+          command: |
+            pushd ./Project/src/Project/
+            dotnet out/Project
+            popd
 

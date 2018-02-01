@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Moving to the project directory
-          command: cd src/Project/
+          command: cd Project/src/Project/
       - run:
           name: Building the project
           command: dotnet publish -c Release -o out
